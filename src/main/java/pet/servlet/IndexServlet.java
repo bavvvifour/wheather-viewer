@@ -1,5 +1,14 @@
 package pet.servlet;
 
+import pet.dto.WheatherDto;
+import pet.exception.api.WeatherServiceException;
+import pet.exception.location.LocationNotFoundException;
+import pet.model.Location;
+import pet.model.User;
+import pet.service.LocationService;
+import pet.service.UserService;
+import pet.service.WeatherApiService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,24 +17,65 @@ import java.io.IOException;
 
 @WebServlet("/")
 public class IndexServlet extends BaseServlet {
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        TemplateEngine templateEngine = (TemplateEngine) getServletContext().getAttribute(
-//                ThymeleafConfig.TEMPLATE_ENGINE_ATTR);
-//
-//        IWebExchange webExchange = JavaxServletWebApplication.buildApplication(getServletContext())
-//                .buildExchange(req, resp);
-//
-//        WebContext context = new WebContext(webExchange);
-//
-//        context.setVariable("name", "Huong Dan Java 1111111111111111111111111");
-//
-//        templateEngine.process("index", context, resp.getWriter());
-//    }
+    private final WeatherApiService weatherApiService = new WeatherApiService();
+    private final LocationService locationService = new LocationService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String locationName = req.getParameter("name");
+        if (locationName != null && !locationName.trim().isEmpty()) {
+            try {
+                WheatherDto location = weatherApiService.getWheatherByName(locationName);
+                context.setVariable("weather", location);
+            } catch (WeatherServiceException e) {
+                context.setVariable("error", e.getMessage());
+            }
+        }
+
+        String successMessage = (String) req.getSession().getAttribute("success");
+        if (successMessage != null) {
+            context.setVariable("success", successMessage);
+            req.getSession().removeAttribute("success");
+        }
+
+        String errorMessage = (String) req.getSession().getAttribute("locationExists");
+        if (errorMessage != null) {
+            context.setVariable("locationExists", errorMessage);
+            req.getSession().removeAttribute("locationExists");
+        }
+
         context.setVariable("user", req.getSession().getAttribute("user"));
         templateEngine.process("index", context, resp.getWriter());
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String locationName = req.getParameter("nameLocation");
+
+        if (locationName != null) {
+            String userName = (String) req.getSession().getAttribute("user");
+
+            UserService userService = new UserService();
+            User user = userService.findByLogin(userName);
+
+            Location existingLocation;
+            try {
+                existingLocation = locationService.findByName(locationName);
+            } catch (LocationNotFoundException e) {
+                existingLocation = null;
+            }
+
+            if (existingLocation != null) {
+                req.getSession().setAttribute("locationExists", "Location " + locationName + " already exists");
+            } else {
+                Location location = new Location();
+                location.setName(locationName);
+                location.setUser(user);
+                locationService.saveLocation(location);
+                req.getSession().setAttribute("success", "Location " + locationName + " added successfully.");
+            }
+            resp.sendRedirect("/");
+        }
+    }
+
 }

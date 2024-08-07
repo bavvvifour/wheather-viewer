@@ -10,7 +10,7 @@
 <body>
 <h1>An error occurred</h1>
 <p th:text="${error}"></p>
-<a href="registration.html">Go back to registration</a>
-<a href="login.html">Go back to login</a>
+<a th:href="@{/registration}">Go back to registration</a>
+<a th:href="@{/login}">Go back to login</a>
 </body>
 </html>

@@ -1,0 +1,430 @@
+GET https://api.openweathermap.org/data/2.5/weather?q=париж,usa&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T181420.200.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?q=париж,us&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T181306.200.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?q=париж,usa&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T180643.200.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?q=париж,usa&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T180623.200.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?q=париж,usa&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T180508.200.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?q=клин,cpb&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T180452.200.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?q=клин&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T180350.200.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?q=париж,техас&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T180328.200.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?q=париж,сша&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T180252.200.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?q=париж&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T180227.200.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T180057.200.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-07T180051.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=красноярск&appid=409bf956ad527d1ae9c16dd2b2e8a7ec
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-06T194124.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=Krasnoyarsk&appid=409bf956ad527d1ae9c16dd2b2e8a7ec
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-06T194057.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=Krasnoyarsk&appid=409bf956ad527d1ae9c16dd2b2e8a7ec
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-06T193808.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=Krasnoyarsk&appid=409bf956ad527d1ae9c16dd2b2e8a7ec
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-04T004506.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=Krasnoyarsk&appid=409bf956ad527d1ae9c16dd2b2e8a7ec
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-02T231200.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=Krasnoyarsk&appid=409bf956ad527d1ae9c16dd2b2e8a7ec
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-02T191744.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=Krasnoyarsk&appid=409bf956ad527d1ae9c16dd2b2e8a7ec
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-02T175609.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=London&appid=409bf956ad527d1ae9c16dd2b2e8a7ec
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-02T175526.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=409bf956ad527d1ae9c16dd2b2e8a7ec
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-02T175522.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=409bf956ad527d1ae9c16dd2b2e8a7ec
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-02T164140.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=2384d486736f74ec08c88ddddadee2f7
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-02T164010.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID={2384d486736f74ec08c88ddddadee2f7}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-02T164002.401.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=2384d486736f74ec08c88ddddadee2f7
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-02T163948.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=bb2ef2e8f6963539e9cb008f9f43d0b6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-02T162927.200.json
+
+###
+
+GET http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=2384d486736f74ec08c88ddddadee2f7
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T231143.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={2384d486736f74ec08c88ddddadee2f7}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T231005.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={2384d486736f74ec08c88ddddadee2f7}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T230854.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={409bf956ad527d1ae9c16dd2b2e8a7ec}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T230508.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={409bf956ad527d1ae9c16dd2b2e8a7ec}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T213632.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={409bf956ad527d1ae9c16dd2b2e8a7ec}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T213524.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={409bf956ad527d1ae9c16dd2b2e8a7ec}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T173651.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={409bf956ad527d1ae9c16dd2b2e8a7ec}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T173627.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={409bf956ad527d1ae9c16dd2b2e8a7ec}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T173624.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?id=2172797&appid={409bf956ad527d1ae9c16dd2b2e8a7ec}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T173324.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?id=2172797&appid={bb2ef2e8f6963539e9cb008f9f43d0b6}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T173255.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={99d435c2919480623fadfc59125f1b23}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T172248.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={99d435c2919480623fadfc59125f1b23}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T171529.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=99d435c2919480623fadfc59125f1b23
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T171225.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={99d435c2919480623fadfc59125f1b23}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T171216.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={"bb2ef2e8f6963539e9cb008f9f43d0b6"}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T171014.401.json
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={bb2ef2e8f6963539e9cb008f9f43d0b6}
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-01T170935.401.json
+
+###
+

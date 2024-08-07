@@ -3,6 +3,13 @@ package pet.servlet;
 import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.context.WebContext;
 import pet.exception.UnexpectedException;
+import pet.exception.api.ApiException;
+import pet.exception.api.InvalidCityException;
+import pet.exception.api.WeatherServiceException;
+import pet.exception.location.LocationAlreadyExistsException;
+import pet.exception.location.LocationDeleteException;
+import pet.exception.location.LocationNotFoundException;
+import pet.exception.location.FindAllLocationsException;
 import pet.exception.session.SessionAlreadyExistsException;
 import pet.exception.session.SessionDeleteException;
 import pet.exception.session.SessionNotFoundException;
@@ -44,21 +51,34 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected void handleException(Exception e, HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        if (
-                e instanceof InvalidParameterException ||
+        if (e instanceof UserAlreadyExistsException ||
+                e instanceof UserNotFoundException
 
-                e instanceof UserAlreadyExistsException ||
-                e instanceof UserNotFoundException ||
+        ) {
+            context.setVariable("error", e.getMessage());
+            templateEngine.process("login", context, resp.getWriter());
+        } else if (e instanceof ApiException ||
+                e instanceof InvalidCityException ||
+                e instanceof WeatherServiceException ||
+
+                e instanceof LocationAlreadyExistsException ||
+                e instanceof LocationDeleteException ||
+                e instanceof LocationNotFoundException ||
+                e instanceof FindAllLocationsException) {
+            context.setVariable("error", e.getMessage());
+            templateEngine.process("index", context, resp.getWriter());
+
+        } else if (e instanceof InvalidParameterException ||
 
                 e instanceof SessionAlreadyExistsException ||
                 e instanceof SessionDeleteException ||
                 e instanceof SessionNotFoundException ||
                 e instanceof SessionsDeleteExpiredException ||
 
-                e instanceof UnexpectedException
-        ) {
+                e instanceof UnexpectedException) {
             context.setVariable("error", e.getMessage());
             templateEngine.process("error", context, resp.getWriter());
+
         } else {
             context.setVariable("error", "An unexpected error occurred.");
             templateEngine.process("error", context, resp.getWriter());

@@ -28,23 +28,19 @@ public class LoginServlet extends BaseServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        try {
-            if (userService.authenticateUser(username, password)) {
-                User user = userService.findByLogin(username);
-                Session session = sessionService.createSession(user);
+        if (userService.authenticateUser(username, password)) {
+            User user = userService.findByLogin(username);
+            Session session = sessionService.createSession(user);
 
-                Cookie cookie = new Cookie("sessionId", session.getId());
-                cookie.setMaxAge(60 * 60);
-                resp.addCookie(cookie);
+            Cookie cookie = new Cookie("sessionId", session.getId());
+            cookie.setMaxAge(60 * 60);
+            resp.addCookie(cookie);
 
-                req.getSession().setAttribute("user", username);
-                resp.sendRedirect("index");
-            } else {
-                context.setVariable("error", "Invalid username or password");
-                templateEngine.process("login", context, resp.getWriter());
-            }
-        } catch (Exception e) {
-            context.setVariable("error", e.getMessage());
+            req.getSession().setAttribute("user", username);
+
+            resp.sendRedirect("/");
+        } else {
+            context.setVariable("error", "Invalid password");
             templateEngine.process("login", context, resp.getWriter());
         }
     }

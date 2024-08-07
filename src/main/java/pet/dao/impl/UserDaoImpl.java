@@ -13,7 +13,6 @@ import pet.util.PersistenceUtil;
 
 
 public class UserDaoImpl implements UserDao {
-
     private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
     @Override

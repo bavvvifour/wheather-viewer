@@ -1,0 +1,49 @@
+{
+  "coord": {
+    "lon": 92.7917,
+    "lat": 56.0097
+  },
+  "weather": [
+    {
+      "id": 500,
+      "main": "Rain",
+      "description": "light rain",
+      "icon": "10d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 297.37,
+    "feels_like": 297.81,
+    "temp_min": 297.37,
+    "temp_max": 297.37,
+    "pressure": 1004,
+    "humidity": 75,
+    "sea_level": 1004,
+    "grnd_level": 976
+  },
+  "visibility": 7384,
+  "wind": {
+    "speed": 1.29,
+    "deg": 289,
+    "gust": 2
+  },
+  "rain": {
+    "1h": 0.78
+  },
+  "clouds": {
+    "all": 84
+  },
+  "dt": 1722600693,
+  "sys": {
+    "type": 1,
+    "id": 8957,
+    "country": "RU",
+    "sunrise": 1722549286,
+    "sunset": 1722606918
+  },
+  "timezone": 25200,
+  "id": 1502026,
+  "name": "Krasnoyarsk",
+  "cod": 200
+}

@@ -11,6 +11,40 @@
 <h1>Welcome</h1>
 <p th:text="'Hello, ' + ${session.user}"></p>
 <p th:text="${user}"></p>
+
+<!--<p th:text="'Hello, ' + ${session.user.getLogin()}"></p>-->
+<!--<p th:text="${user}"></p>-->
+
 <a href="logout">Logout</a>
+
+<h1>Search for Weather</h1>
+
+<form th:action="@{/}" method="get">
+    <label for="name">Location Name:</label>
+    <input type="text" id="name" name="name" required/>
+    <button type="submit">Search</button>
+</form>
+<div th:if="${weather}">
+    <h2>Weather in <span th:text="${weather.getName()}">City</span></h2>
+    <p>Temperature: <span th:text="${weather.getWhetherMainDto().getTemperature()}"></span> ºC</p>
+    <form th:action="@{/}" method="post">
+        <input type="hidden" name="nameLocation" th:value="${weather.getName()}"/>
+        <button type="submit">Add Location</button>
+    </form>
+
+</div>
+
+<div th:if="${success}">
+    <p th:text="${success}" style="color: green;"></p>
+</div>
+
+<div th:if="${locationExists}">
+    <p th:text="${locationExists}" style="color: red;"></p>
+</div>
+
+<div th:if="${error}" style="color: red;">
+    <p th:text="${error}"></p>
+</div>
+
 </body>
 </html>
