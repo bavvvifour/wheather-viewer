@@ -13,6 +13,8 @@ logs
 *.iws
 *.iml
 *.ipr
+.idea/dataSources
+.idea/httpRequests
 
 ### Eclipse ###
 .apt_generated
