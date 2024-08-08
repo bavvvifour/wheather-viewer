@@ -22,4 +22,10 @@ public class Location {
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
     private User user;
+
+    @Column(nullable = false)
+    private double latitude;
+
+    @Column(nullable = false)
+    private double longitude;
 }

@@ -1,7 +1,6 @@
 package pet.servlet;
 
-import pet.dto.WheatherDto;
-import pet.exception.api.WeatherServiceException;
+import pet.dto.OpenWeatherMapDto;
 import pet.exception.location.LocationNotFoundException;
 import pet.model.Location;
 import pet.model.User;
@@ -14,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/")
 public class IndexServlet extends BaseServlet {
@@ -24,12 +24,8 @@ public class IndexServlet extends BaseServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String locationName = req.getParameter("name");
         if (locationName != null && !locationName.trim().isEmpty()) {
-            try {
-                WheatherDto location = weatherApiService.getWheatherByName(locationName);
-                context.setVariable("weather", location);
-            } catch (WeatherServiceException e) {
-                context.setVariable("error", e.getMessage());
-            }
+            List<OpenWeatherMapDto> location = weatherApiService.searchCitiesByName(locationName);
+            context.setVariable("cities", location);
         }
 
         String successMessage = (String) req.getSession().getAttribute("success");
@@ -52,7 +48,13 @@ public class IndexServlet extends BaseServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String locationName = req.getParameter("nameLocation");
 
+        String latitudeStr = req.getParameter("latitude");
+        String longitudeStr = req.getParameter("longitude");
+
         if (locationName != null) {
+            double latitude = Double.parseDouble(latitudeStr);
+            double longitude = Double.parseDouble(longitudeStr);
+
             String userName = (String) req.getSession().getAttribute("user");
 
             UserService userService = new UserService();
@@ -69,13 +71,17 @@ public class IndexServlet extends BaseServlet {
                 req.getSession().setAttribute("locationExists", "Location " + locationName + " already exists");
             } else {
                 Location location = new Location();
+
                 location.setName(locationName);
                 location.setUser(user);
+                location.setLongitude(longitude);
+                location.setLatitude(latitude);
+
                 locationService.saveLocation(location);
+
                 req.getSession().setAttribute("success", "Location " + locationName + " added successfully.");
             }
             resp.sendRedirect("/");
         }
     }
-
 }

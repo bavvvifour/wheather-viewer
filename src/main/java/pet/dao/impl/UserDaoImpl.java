@@ -5,7 +5,6 @@ import jakarta.persistence.EntityTransaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pet.dao.UserDao;
-import pet.exception.UnexpectedException;
 import pet.exception.user.UserAlreadyExistsException;
 import pet.exception.user.UserNotFoundException;
 import pet.model.User;
@@ -28,8 +27,8 @@ public class UserDaoImpl implements UserDao {
             if (transaction != null) {
                 logger.error("User {} already exists", user.getLogin());
                 transaction.rollback();
+                throw new UserAlreadyExistsException("User " + user.getLogin() + " already exists", e);
             }
-            throw new UserAlreadyExistsException("User " + user.getLogin() + " already exists", e);
         } finally {
             entityManager.close();
         }
@@ -51,24 +50,5 @@ public class UserDaoImpl implements UserDao {
             entityManager.close();
         }
         return user;
-    }
-
-    @Override
-    public boolean existsByLogin(String login) throws UnexpectedException {
-        EntityManager entityManager = PersistenceUtil.getEntityManager();
-        boolean exists = false;
-        try {
-            long count = entityManager.createQuery("SELECT COUNT(u) FROM User u WHERE u.login = :login", Long.class)
-                    .setParameter("login", login)
-                    .getSingleResult();
-            exists = count > 0;
-        } catch (Exception e) {
-            logger.warn("Unexpected exception while checking if user exists by login: {}", login, e);
-            throw new UnexpectedException("Unexpected exception", e);
-        }
-        finally {
-            entityManager.close();
-        }
-        return exists;
     }
 }

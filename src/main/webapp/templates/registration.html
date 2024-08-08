@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -14,6 +14,7 @@
         <label for="login">Login:</label>
         <input type="text" id="login" name="login" th:value="${login}" required>
         <span th:if="${errorLogin}" th:text="${errorLogin}"></span>
+        <span th:if="${error}" th:text="${error}" style="color: red;"></span>
     </div>
     <div>
         <label for="password">Password:</label>

@@ -1,21 +1,26 @@
 package pet.servlet;
 
+import pet.dto.OpenWeatherMapDto;
 import pet.model.Location;
 import pet.model.User;
 import pet.service.LocationService;
 import pet.service.UserService;
+import pet.service.WeatherApiService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/locations")
 public class LocationsServlets extends BaseServlet {
     private final LocationService locationService = new LocationService();
     private final UserService userService = new UserService();
+    private final WeatherApiService weatherApiService = new WeatherApiService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,10 +28,16 @@ public class LocationsServlets extends BaseServlet {
         User user = userService.findByLogin(userName);
 
         List<Location> locations = locationService.findAllLocations(user.getId());
-        context.setVariable("locations", locations);
-
+        Map<Location, OpenWeatherMapDto> locationWeatherMap = new HashMap<>();
+        for (Location location : locations) {
+            OpenWeatherMapDto weather = weatherApiService.getWeatherByCoordinates(location.getLatitude(), location.getLongitude());
+            locationWeatherMap.put(location, weather);
+        }
+        context.setVariable("locationWeatherMap", locationWeatherMap);
         templateEngine.process("locations", context, resp.getWriter());
+
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -56,9 +56,6 @@ public class RegistrationServlet extends BaseServlet {
         if (username == null || username.isEmpty()) {
             context.setVariable("errorLogin", "Login is required.");
             hasErrors = true;
-        } else if (userService.existsByLogin(username)) {
-            context.setVariable("errorLogin", "Login already exists.");
-            hasErrors = true;
         }
 
         if (password == null || password.isEmpty()) {
@@ -69,11 +66,15 @@ public class RegistrationServlet extends BaseServlet {
             hasErrors = true;
         }
 
+        assert password != null;
+        if (password.equals(confirmPassword)) {
+            userService.saveUser(username, password);
+        }
+
         if (hasErrors) {
             context.setVariable("login", username);
             templateEngine.process("registration", context, resp.getWriter());
         } else {
-            userService.saveUser(username, password);
             resp.sendRedirect("login");
         }
     }

@@ -18,16 +18,11 @@ public class UserService {
         userDao.saveUser(user);
     }
 
-    public boolean authenticateUser(String login, String password) {
-        User user = userDao.findByLogin(login);
-        return passwordUtil.verifyHash(password, user.getPassword());
+    public boolean checkPassword(String inputPassword, String userPassword) {
+        return passwordUtil.verifyHash(inputPassword, userPassword);
     }
 
     public User findByLogin(String login) {
         return userDao.findByLogin(login);
-    }
-
-    public boolean existsByLogin(String login) {
-        return userDao.existsByLogin(login);
     }
 }

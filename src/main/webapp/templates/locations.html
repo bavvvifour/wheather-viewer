@@ -19,13 +19,16 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="location : ${locations}">
-        <td th:text="${location.getName()}">Name</td>
-        <td th:text="${location.getUser().getLogin()}">User</td>
+    <tr th:each="location : ${locationWeatherMap}">
+        <td th:text="${location.key.getName()}">Name</td>
+        <td th:text="${location.key.getId()}">id</td>
+        <td th:text="${location.value.getName()}">User</td>
+        <td th:text="${location.value.getMainDto().getTemperature()}"></td>
+        <td th:text="${location.value.getMainDto().getTemperature()}"></td>
         <td>
             <form th:action="@{/locations}" method="post">
-                <input type="hidden" name="locationId" th:value="${location.getId()}" />
-                <input type="hidden" name="action" value="delete" />
+                <input type="hidden" name="locationId" th:value="${location.key.getId()}"/>
+                <input type="hidden" name="action" value="delete"/>
                 <button type="submit">Delete</button>
             </form>
         </td>

@@ -1,4 +1,4 @@
-package pet.dto;
+package pet.dto.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -6,7 +6,10 @@ import lombok.Getter;
 
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WhetherMainDto {
-    @JsonProperty("temp")
-    private String temperature;
+public class CoordinationsDto {
+    @JsonProperty("lat")
+    private double latitude;
+
+    @JsonProperty("lon")
+    private double longitude;
 }

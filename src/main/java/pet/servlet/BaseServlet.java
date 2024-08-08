@@ -2,7 +2,6 @@ package pet.servlet;
 
 import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.context.WebContext;
-import pet.exception.UnexpectedException;
 import pet.exception.api.ApiException;
 import pet.exception.api.InvalidCityException;
 import pet.exception.api.WeatherServiceException;
@@ -14,6 +13,7 @@ import pet.exception.session.SessionAlreadyExistsException;
 import pet.exception.session.SessionDeleteException;
 import pet.exception.session.SessionNotFoundException;
 import pet.exception.session.SessionsDeleteExpiredException;
+import pet.exception.user.InvalidPasswordException;
 import pet.exception.user.UserAlreadyExistsException;
 import pet.exception.user.UserNotFoundException;
 import pet.listener.ThymeleafListener;
@@ -51,12 +51,17 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected void handleException(Exception e, HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        if (e instanceof UserAlreadyExistsException ||
-                e instanceof UserNotFoundException
+        if (e instanceof UserNotFoundException ||
+                e instanceof InvalidPasswordException ||
+
+                e instanceof InvalidParameterException
 
         ) {
             context.setVariable("error", e.getMessage());
             templateEngine.process("login", context, resp.getWriter());
+        } else if (e instanceof UserAlreadyExistsException) {
+            context.setVariable("error", e.getMessage());
+            templateEngine.process("registration", context, resp.getWriter());
         } else if (e instanceof ApiException ||
                 e instanceof InvalidCityException ||
                 e instanceof WeatherServiceException ||
@@ -68,14 +73,10 @@ public abstract class BaseServlet extends HttpServlet {
             context.setVariable("error", e.getMessage());
             templateEngine.process("index", context, resp.getWriter());
 
-        } else if (e instanceof InvalidParameterException ||
-
-                e instanceof SessionAlreadyExistsException ||
+        } else if (e instanceof SessionAlreadyExistsException ||
                 e instanceof SessionDeleteException ||
                 e instanceof SessionNotFoundException ||
-                e instanceof SessionsDeleteExpiredException ||
-
-                e instanceof UnexpectedException) {
+                e instanceof SessionsDeleteExpiredException) {
             context.setVariable("error", e.getMessage());
             templateEngine.process("error", context, resp.getWriter());
 

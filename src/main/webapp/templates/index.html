@@ -12,9 +12,6 @@
 <p th:text="'Hello, ' + ${session.user}"></p>
 <p th:text="${user}"></p>
 
-<!--<p th:text="'Hello, ' + ${session.user.getLogin()}"></p>-->
-<!--<p th:text="${user}"></p>-->
-
 <a href="logout">Logout</a>
 
 <h1>Search for Weather</h1>
@@ -24,13 +21,20 @@
     <input type="text" id="name" name="name" required/>
     <button type="submit">Search</button>
 </form>
-<div th:if="${weather}">
-    <h2>Weather in <span th:text="${weather.getName()}">City</span></h2>
-    <p>Temperature: <span th:text="${weather.getWhetherMainDto().getTemperature()}"></span> ºC</p>
-    <form th:action="@{/}" method="post">
-        <input type="hidden" name="nameLocation" th:value="${weather.getName()}"/>
-        <button type="submit">Add Location</button>
-    </form>
+<div th:if="${cities}">
+    <h2>Search Results:</h2>
+    <ul>
+        <li th:each="city : ${cities}">
+            <span th:text="${city.getName()} + ', ' + ${city.getSysDto().getCode()}"></span>
+            - Temperature: <span th:text="${city.getMainDto().getTemperature()}"></span>°C
+            <form th:action="@{/}" method="post">
+                <input type="hidden" name="nameLocation" th:value="${city.getName()}"/>
+                <input type="hidden" name="longitude" th:value="${city.getCoordinationsDto().getLongitude()}">
+                <input type="hidden" name="latitude" th:value="${city.getCoordinationsDto().getLatitude()}">
+                <button type="submit">Add Location</button>
+            </form>
+        </li>
+    </ul>
 
 </div>
 
