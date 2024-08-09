@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pet.dto.OpenWeatherMapDto;
@@ -18,10 +19,10 @@ import java.net.http.HttpResponse;
 import java.util.*;
 
 public class WeatherApiService {
+    private final static Dotenv dotenv = Dotenv.load();
 
-    private static final Logger logger = LoggerFactory.getLogger(WeatherApiService.class);
-
-    private final static String API_ID = "SECRET";
+    private final static Logger logger = LoggerFactory.getLogger(WeatherApiService.class);
+    private final static String API_ID = dotenv.get("API_ID");
     private final static String BASE_API_URL = "https://api.openweathermap.org";
     private final static String WEATHER_API_URL_SUFFIX = "/data/2.5/weather";
     private final static String FIND_API_URL_SUFFIX = "/data/2.5/find";
