@@ -19,7 +19,7 @@ import java.net.http.HttpResponse;
 import java.util.*;
 
 public class WeatherApiService {
-    private final static Dotenv dotenv = Dotenv.load();
+    private final static Dotenv dotenv = Dotenv .load();
 
     private final static Logger logger = LoggerFactory.getLogger(WeatherApiService.class);
     private final static String API_ID = dotenv.get("API_ID");

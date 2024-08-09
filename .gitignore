@@ -5,7 +5,7 @@ target/
 logs
 .smarttomcat
 
-.env
+src/main/resources/.env
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
