@@ -75,7 +75,7 @@ public class RegistrationServlet extends BaseServlet {
             context.setVariable("login", username);
             templateEngine.process("registration", context, resp.getWriter());
         } else {
-            resp.sendRedirect("login");
+            resp.sendRedirect(req.getContextPath() + "login");
         }
     }
 }

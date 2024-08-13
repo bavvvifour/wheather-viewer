@@ -81,7 +81,7 @@ public class IndexServlet extends BaseServlet {
 
                 req.getSession().setAttribute("success", "Location " + locationName + " added successfully.");
             }
-            resp.sendRedirect("/");
+            resp.sendRedirect(req.getContextPath() + "/");
         }
     }
 }

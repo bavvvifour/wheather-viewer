@@ -51,6 +51,6 @@ public class LoginServlet extends BaseServlet {
 
         req.getSession().setAttribute("user", username);
 
-        resp.sendRedirect("/");
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 }

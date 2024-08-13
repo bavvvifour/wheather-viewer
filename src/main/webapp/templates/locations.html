@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -19,23 +19,22 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="location : ${locationWeatherMap}">
-        <td th:text="${location.key.getName()}">Name</td>
-        <td th:text="${location.key.getId()}">id</td>
-        <td th:text="${location.value.getName()}">User</td>
-        <td th:text="${location.value.getMainDto().getTemperature()}"></td>
-        <td th:text="${location.value.getMainDto().getTemperature()}"></td>
-        <td>
-            <form th:action="@{/locations}" method="post">
-                <input type="hidden" name="locationId" th:value="${location.key.getId()}"/>
-                <input type="hidden" name="action" value="delete"/>
-                <button type="submit">Delete</button>
-            </form>
-        </td>
-    </tr>
+<tr th:each="location : ${locationWeatherMap}">
+    <td th:text="${location.key.getName()}">Name</td>
+    <td th:text="${location.key.getId()}">id</td>
+    <td>
+        <form th:action="@{/locations}" method="post">
+            <input type="hidden" name="locationId" th:value="${location.key.getId()}"/>
+            <input type="hidden" name="action" value="delete"/>
+            <button type="submit">Delete</button>
+        </form>
+    </td>
+    <td>
+        <img th:src="@{'/img/' + ${location.value.getIconPath()} }" alt="Weather icon" height="60" width="60" />
+    </td>
+</tr>
     </tbody>
 </table>
-
 <a th:href="@{/}">Go back</a>
 </body>
 </html>

@@ -1,10 +1,7 @@
 package pet.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.CollectionType;
-import com.fasterxml.jackson.databind.type.TypeFactory;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,14 +17,12 @@ import java.util.*;
 
 public class WeatherApiService {
     private final static Dotenv dotenv = Dotenv .load();
-
     private final static Logger logger = LoggerFactory.getLogger(WeatherApiService.class);
     private final static String API_ID = dotenv.get("API_ID");
     private final static String BASE_API_URL = "https://api.openweathermap.org";
     private final static String WEATHER_API_URL_SUFFIX = "/data/2.5/weather";
     private final static String FIND_API_URL_SUFFIX = "/data/2.5/find";
     private final static String UNITS = "metric";
-
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final static HttpClient httpClient = HttpClient.newHttpClient();
 
@@ -64,6 +59,9 @@ public class WeatherApiService {
             Iterator<JsonNode> elements = listNode.elements();
             while (elements.hasNext()) {
                 JsonNode cityNode = elements.next();
+
+                System.out.println(cityNode);
+
                 OpenWeatherMapDto city = objectMapper.treeToValue(cityNode, OpenWeatherMapDto.class);
                 cities.add(city);
             }

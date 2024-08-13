@@ -27,4 +27,10 @@ public class OpenWeatherMapDto {
 
     @JsonProperty("name")
     private String name;
+
+    @JsonProperty("dt")
+    private long data;
+
+    @JsonProperty("timezone")
+    private int timezone;
 }
