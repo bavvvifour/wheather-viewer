@@ -2,54 +2,80 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>index</title>
+    <title>Home</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<h1>Welcome</h1>
-<p th:text="'Hello, ' + ${session.user}"></p>
-<p th:text="${user}"></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">WeatherApp</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <span class="navbar-text" th:text="'Hello, ' + ${user}"></span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-<a href="logout">Logout</a>
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>Welcome</h1>
+    </div>
 
-<h1>Search for Weather</h1>
-
-<form th:action="@{/}" method="get">
-    <label for="name">Location Name:</label>
-    <input type="text" id="name" name="name" required/>
-    <button type="submit">Search</button>
-</form>
-<div th:if="${cities}">
-    <h2>Search Results:</h2>
-    <ul>
-        <li th:each="city : ${cities}">
-            <span th:text="${city.getName()} + ', ' + ${city.getSysDto().getCode()}"></span>
-            - Temperature: <span th:text="${city.getMainDto().getTemperature()}"></span>°C
-            <form th:action="@{/}" method="post">
-                <input type="hidden" name="nameLocation" th:value="${city.getName()}"/>
-                <input type="hidden" name="longitude" th:value="${city.getCoordinationsDto().getLongitude()}">
-                <input type="hidden" name="latitude" th:value="${city.getCoordinationsDto().getLatitude()}">
-                <button type="submit">Add Location</button>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h2 class="card-title">Search for Weather</h2>
+            <form th:action="@{/}" method="get" class="form-inline">
+                <div class="form-group mr-3">
+                    <label for="name" class="mr-2">Location Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter location" required/>
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
             </form>
-        </li>
-    </ul>
+        </div>
+    </div>
+
+    <div th:if="${cities}" class="mt-4">
+        <h2>Search Results:</h2>
+        <ul class="list-group">
+            <li th:each="city : ${cities}" class="list-group-item d-flex justify-content-between align-items-center">
+                <span th:text="${city.getName()} + ', ' + ${city.getSysDto().getCode()}"></span>
+                <span th:text="${'lat = ' + city.getCoordinationsDto().getLatitude()} + ' lot = ' + ${city.getCoordinationsDto().getLongitude()}"></span>
+                <span>- Temperature: <span th:text="${city.getMainDto().getTemperature()}"></span>°C</span>
+                <form th:action="@{/}" method="post" class="form-inline">
+                    <input type="hidden" name="nameLocation" th:value="${city.getName()}"/>
+                    <input type="hidden" name="longitude" th:value="${city.getCoordinationsDto().getLongitude()}">
+                    <input type="hidden" name="latitude" th:value="${city.getCoordinationsDto().getLatitude()}">
+                    <button type="submit" class="btn btn-success btn-sm">Add Location</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mt-4">
+        <a th:href="@{locations}" class="btn btn-secondary">Show all locations</a>
+    </div>
+
+    <div th:if="${success}" class="alert alert-success mt-3" role="alert">
+        <p th:text="${success}"></p>
+    </div>
+
+    <div th:if="${locationExists}" class="alert alert-warning mt-3" role="alert">
+        <p th:text="${locationExists}"></p>
+    </div>
+
+    <div th:if="${error}" class="alert alert-danger mt-3" role="alert">
+        <p th:text="${error}"></p>
+    </div>
 </div>
 
-<a th:href="@{locations}">Show all locations</a>
-
-<div th:if="${success}">
-    <p th:text="${success}" style="color: green;"></p>
-</div>
-
-<div th:if="${locationExists}">
-    <p th:text="${locationExists}" style="color: red;"></p>
-</div>
-
-<div th:if="${error}" style="color: red;">
-    <p th:text="${error}"></p>
-</div>
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

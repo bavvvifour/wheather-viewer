@@ -2,39 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>All Locations</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .location-card {
+            margin-bottom: 20px;
+        }
+        .location-card img {
+            object-fit: cover;
+            height: 60px;
+            width: 60px;
+        }
+        .location-info {
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-<h1>All Locations</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">All Locations</h1>
+    <div class="row">
+        <div class="col-md-4" th:each="location : ${locationWeatherMap}">
+            <div class="card location-card">
+                <img th:src="@{'/img/' + ${location.value.getIconPath()}}" class="card-img-top" alt="Weather icon">
+                <div class="card-body location-info">
+                    <h5 class="card-title" th:text="${location.key.getName()}">Location Name</h5>
+                    <p class="card-text">
+                        Coords: <span th:text="${'lat-' + location.value.getWeatherDto().getCoordinationsDto().getLatitude() + ', lot-' + location.value.getWeatherDto().getCoordinationsDto().getLongitude()}">Coords</span><br>
+                        Temperature: <span th:text="${location.value.getWeatherDto().getMainDto().getTemperature()}">Temperature</span>°C<br>
+                    </p>
+                    <form th:action="@{/locations}" method="post">
+                        <input type="hidden" name="locationId" th:value="${location.key.getId()}"/>
+                        <input type="hidden" name="action" value="delete"/>
+                        <button type="submit" class="btn btn-danger btn-block">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a th:href="@{/}" class="btn btn-secondary">Go back</a>
+    </div>
+</div>
 
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>User</th>
-    </tr>
-    </thead>
-    <tbody>
-<tr th:each="location : ${locationWeatherMap}">
-    <td th:text="${location.key.getName()}">Name</td>
-    <td th:text="${location.key.getId()}">id</td>
-    <td>
-        <form th:action="@{/locations}" method="post">
-            <input type="hidden" name="locationId" th:value="${location.key.getId()}"/>
-            <input type="hidden" name="action" value="delete"/>
-            <button type="submit">Delete</button>
-        </form>
-    </td>
-    <td>
-        <img th:src="@{'/img/' + ${location.value.getIconPath()} }" alt="Weather icon" height="60" width="60" />
-    </td>
-</tr>
-    </tbody>
-</table>
-<a th:href="@{/}">Go back</a>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

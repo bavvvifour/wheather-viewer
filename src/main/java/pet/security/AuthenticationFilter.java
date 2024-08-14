@@ -43,6 +43,7 @@ public class AuthenticationFilter implements Filter {
             for (Cookie cookie : cookies) {
                 if ("sessionId".equals(cookie.getName())) {
                     sessionId = cookie.getValue();
+                    req.getSession().setAttribute("user", sessionService.findSessionById(sessionId).getUser().getLogin());
                     break;
                 }
             }
