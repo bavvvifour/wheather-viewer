@@ -69,6 +69,8 @@ public class RegistrationServlet extends BaseServlet {
         assert password != null;
         if (password.equals(confirmPassword)) {
             userService.saveUser(username, password);
+        } else {
+            context.setVariable("errorLogin", "User already exists");
         }
 
         if (hasErrors) {
